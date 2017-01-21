@@ -4,7 +4,8 @@ class AgentNeptune extends Character {
   private boolean isUp = true;
   private boolean isRight = true;
   private boolean isPaused = false;
-private boolean beforeAction = true;
+  private boolean act = false;
+  private boolean hasActed = false;
   AgentNeptune() {
     charHeight = 100;
     charWidth = 50;
@@ -13,11 +14,14 @@ private boolean beforeAction = true;
     yPos = 150;
   }
 
+  boolean isHasActed() {
+    return hasActed;
+  }
   void act(boolean keyPress) {
     //Waves.acting = true;
     setPaused(keyPress);
-    beforeAction = false;
-  //  keyAction(1280);
+    act = true;
+    //  keyAction(1280);
     //Waves.acting = false;
   }
 
@@ -27,7 +31,7 @@ private boolean beforeAction = true;
 
   void move(int boundsCheck) {
 
-    if (beforeAction) {
+    if (!act) {
       if (isPaused == false) {
 
         if (isUp) {
@@ -39,9 +43,8 @@ private boolean beforeAction = true;
         resolveDirection(boundsCheck);
       }
     } else {
-      
+
       keyAction(1280);
-      
     }
   }
 
@@ -59,6 +62,7 @@ private boolean beforeAction = true;
   private void resolveLeftRightDirection(int boundsCheck) {
     if ((isRight == false && xPos < 0) || (isRight == true && xPos > (boundsCheck - charWidth))) {
       isRight = !isRight;
+      hasActed = true;
     }
   }
 

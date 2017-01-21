@@ -55,12 +55,19 @@ class GameLevel extends Level {
       character.act(keyPress);
     }
 
-    if (agentNeptune.getYCenter() > bouncer.getYPos() && agentNeptune.getYCenter() < bouncer.getYPos() + bouncer.getHeight()) {
-      println("WINNER WINNER WOW !!!!!!!! WINNER !!!!!!!! WOW.");
-     // status = LevelStatus.WIN;
-    } else {
-      println("LOSER LOSER WOE !!!!!!!!! LOSER !!!!!!! WOE.");
-     // status = LevelStatus.LOSE;
+  }
+
+  void checkWin() {
+
+    if (agentNeptune.isHasActed()) {
+      if ((agentNeptune.getYCenter() > bouncer.getYPos()) && (agentNeptune.getYCenter() < bouncer.getYPos() + bouncer.getHeight())
+        && (agentNeptune.getXPos() + agentNeptune.getWidth()) >= bouncer.getXPos()) {
+        println("WINNER WINNER WOW !!!!!!!! WINNER !!!!!!!! WOW.");
+        status = LevelStatus.WIN;
+      } else {
+        println("LOSER LOSER WOE !!!!!!!!! LOSER !!!!!!! WOE.");
+        status = LevelStatus.LOSE;
+      }
     }
   }
 }

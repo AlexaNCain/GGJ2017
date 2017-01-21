@@ -26,6 +26,7 @@ void draw() {
   background(175);
   currentLevel.drawLevelFrame(currentFrame);
   currentFrame = (currentFrame + 1) % frames;
+  currentLevel.checkWin();
   }
 }
 
@@ -33,6 +34,7 @@ void keyPressed() {
   if (key != ESC && acting == false) {
     currentLevel.act(true);
   }
+  
 }
 
 void keyReleased() {
