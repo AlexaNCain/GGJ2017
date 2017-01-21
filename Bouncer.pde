@@ -1,5 +1,7 @@
 class Bouncer extends Character {
 
+  private boolean canAct = false;
+
   Bouncer(int x) {
     charHeight = 300;
     charWidth = 150;
@@ -12,12 +14,16 @@ class Bouncer extends Character {
   }
 
   void move(int boundsCheckY, int boundsCheckX) {
-    
+    if (canAct) {
+      moveLeftRight(boundsCheckX);
+    }
   }
 
   void drawMe() {
     rect(xPos, yPos, charWidth, charHeight);
   }
-  
-  void act(boolean keyPress){}
+
+  void act(boolean keyPress) {
+    canAct = true;
+  }
 }

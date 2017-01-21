@@ -65,4 +65,15 @@ abstract class Character {
       isRight = !isRight;
     }
   }
+
+  protected void moveLeftRight(int boundsCheckX) {
+
+    if (isRight) {
+      moveRight();
+    } else {
+      moveLeft();
+    }
+
+    resolveLeftRightDirection(boundsCheckX);
+  }
 }

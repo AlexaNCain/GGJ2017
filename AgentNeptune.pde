@@ -48,13 +48,7 @@ class AgentNeptune extends Character {
   }
   
   private void keyAction(int boundsCheckX) {
-
-    if (isRight) {
-      moveRight();
-    } else {
-      moveLeft();
+  
+      moveLeftRight(boundsCheckX);
     }
-
-    resolveLeftRightDirection(boundsCheckX);
-  }
 }
