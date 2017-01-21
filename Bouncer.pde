@@ -12,6 +12,8 @@ class Bouncer extends Character {
   }
 
   void drawMe() {
-    rect(this.getXPos(), this.getYPos(), this.getWidth(), this.getHeight());
+    rect(xPos, yPos, charWidth, charHeight);
   }
+  
+  void act(boolean keyPress){}
 }

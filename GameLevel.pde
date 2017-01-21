@@ -37,7 +37,7 @@ class GameLevel extends Level {
 
   private void handleBackground(int frameNumber) {
     background(background.get(currentFrame));
-    if(frameNumber % 10 == 0 ) {    
+    if (frameNumber % 10 == 0 ) {    
       currentFrame=(currentFrame + 1) % background.size();
     }
   }
@@ -47,6 +47,12 @@ class GameLevel extends Level {
     for (Character character : characters) {
       character.move(levelHeight);
       character.drawMe();
+    }
+  }
+
+  void act(boolean keyPress) {
+    for (Character character : characters) {
+      character.act(keyPress);
     }
   }
 }

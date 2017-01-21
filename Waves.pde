@@ -21,20 +21,22 @@ void setup() {
 }
 
 void draw() {
+  if(currentLevel.getLevelStatus() == LevelStatus.IN_PROGRESS){
   background(175);
   currentLevel.drawLevelFrame(currentFrame);
   currentFrame = (currentFrame + 1) % frames;
+  }
 }
 
 void keyPressed() {
   if (key != ESC) {
-    agentNeptune.act(true);
+    currentLevel.act(true);
   }
 }
 
 void keyReleased() {
   if (key != ESC) {
-    agentNeptune.act(false);
+    currentLevel.act(false);
   }
 }
 /*void drawAgent(){

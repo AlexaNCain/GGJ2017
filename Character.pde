@@ -6,12 +6,21 @@ abstract class Character {
   protected int xPos;
   protected int yPos;
 
+
   int getXPos() {
     return xPos;
   }
 
   int getYPos() {
     return yPos;
+  }
+  
+  int getXCenter(){
+    return xPos + (charWidth / 2);
+  }
+
+  int getYCenter(){
+    return yPos + (charHeight / 2);
   }
 
   abstract void move(int boundsCheck);
@@ -24,4 +33,6 @@ abstract class Character {
   int getWidth() {
     return charWidth;
   }
+  
+  abstract void act(boolean keyPress);
 }

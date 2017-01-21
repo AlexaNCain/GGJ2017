@@ -17,6 +17,7 @@ abstract class Level {
   }
 
   abstract void drawLevelFrame(int frameNumber);
+  abstract void act(boolean keyPress);
 
   void setLevelStatus(LevelStatus status) {
     this.status = status;

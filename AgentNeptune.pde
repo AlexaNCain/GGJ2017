@@ -35,7 +35,8 @@ class AgentNeptune extends Character {
   }
 
   void drawMe() {
-    rect(this.getXPos(), this.getYPos(), this.getWidth(), this.getHeight());
+    rect(xPos, yPos, charWidth, charHeight);
+   // println("y = " + yPos + " middle =" + getYCenter());
   }
 
   private void resolveDirection(int boundsCheck) {
