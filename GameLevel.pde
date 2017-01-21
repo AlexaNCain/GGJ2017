@@ -54,5 +54,11 @@ class GameLevel extends Level {
     for (Character character : characters) {
       character.act(keyPress);
     }
+
+    if (agentNeptune.getYCenter() > bouncer.getYPos() && agentNeptune.getYCenter() < bouncer.getYPos() + bouncer.getHeight()) {
+      println("WINNER WINNER WOW !!!!!!!! WINNER !!!!!!!! WOW.");
+    } else {
+      println("LOSER LOSER WOE !!!!!!!!! LOSER !!!!!!! WOE.");
+    }
   }
 }
