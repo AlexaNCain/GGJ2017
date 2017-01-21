@@ -1,8 +1,8 @@
 class AgentNeptune extends Character{
 
-  int step;
-  boolean isUp = true;
-  boolean isPaused = false;
+  private int step;
+  private boolean isUp = true;
+  private boolean isPaused = false;
 
   AgentNeptune() {
     height = 100;

@@ -1,7 +1,7 @@
  class Level{
-  AgentNeptune agentNeptune = new AgentNeptune();
-  Bouncer bouncer = new Bouncer(1280);
-  LevelStatus status;
+  private AgentNeptune agentNeptune = new AgentNeptune();
+  private Bouncer bouncer = new Bouncer(1280);
+  private LevelStatus status;
   ArrayList<Character> characters = new ArrayList<Character>();
   Level(){
     status = LevelStatus.IN_PROGRESS;

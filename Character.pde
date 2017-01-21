@@ -1,10 +1,10 @@
 abstract class Character{
   
-  int height;
-  int width;
-  int step;
-  int xPos;
-  int yPos;
+  protected int height;
+  protected int width;
+  protected int step;
+  protected int xPos;
+  protected int yPos;
 
   int getXPos() {
     return xPos;
