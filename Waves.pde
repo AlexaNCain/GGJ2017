@@ -1,5 +1,3 @@
-int height  = 800;
-int width = 1280;
 Level currentLevel;
 Level levelOne = new Level();
 AgentNeptune agentNeptune;
@@ -11,6 +9,7 @@ void setup(){
   currentLevel = levelOne;
   agentNeptune = currentLevel.getAgent();
   bouncer = new Bouncer(width);
+  frameRate(40);
 }
 
 void draw(){
