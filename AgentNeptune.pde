@@ -7,7 +7,7 @@ class AgentNeptune extends Character{
   AgentNeptune() {
     height = 100;
     width = 50;
-    step = 25;
+    step = 15;
     xPos = 0;
     yPos = 150;
   }
