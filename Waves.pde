@@ -4,9 +4,6 @@ AgentNeptune agentNeptune;
 int currentFrame = 0;
 static boolean acting = false;
 
-//static PImage bg1;
-//static PImage bg2;
-//static PImage bg3;
 int frames = 40;
 
 void setup() {
@@ -16,9 +13,6 @@ void setup() {
   currentLevel = levelOne;
   agentNeptune = currentLevel.getAgent();
   frameRate(frames);
-  //bg1 = loadImage("background1.png");
-  //bg2 = loadImage("background2.png");
-  //bg3 = loadImage("background3.png");
 }
 
 void draw() {
@@ -42,6 +36,3 @@ void keyReleased() {
     currentLevel.act(false);
   }
 }
-/*void drawAgent(){
- rect(agentNeptune.getXPos(), agentNeptune.getYPos(), agentNeptune.getWidth(), agentNeptune.getHeight());
- }*/
