@@ -5,8 +5,8 @@ class AgentNeptune extends Character{
   private boolean isPaused = false;
 
   AgentNeptune() {
-    height = 100;
-    width = 50;
+    charHeight = 100;
+    charWidth = 50;
     step = 15;
     xPos = 0;
     yPos = 150;
@@ -39,7 +39,7 @@ class AgentNeptune extends Character{
   }
   
   private void resolveDirection(int boundsCheck){
-    if((isUp == true && yPos < 0) || (isUp == false && yPos > (boundsCheck - height))){
+    if((isUp == true && yPos < 0) || (isUp == false && yPos > (boundsCheck - charHeight))){
         isUp = !isUp;
     }
   }

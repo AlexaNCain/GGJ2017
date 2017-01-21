@@ -1,7 +1,7 @@
 abstract class Character{
   
-  protected int height;
-  protected int width;
+  protected int charHeight;
+  protected int charWidth;
   protected int step;
   protected int xPos;
   protected int yPos;
@@ -18,11 +18,11 @@ abstract class Character{
   abstract void drawMe();
 
   int getHeight() {
-    return height;
+    return charHeight;
   }
 
   int getWidth() {
-    return width;
+    return charWidth;
   }
   
 }

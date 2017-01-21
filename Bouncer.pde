@@ -1,9 +1,10 @@
 class Bouncer extends Character{
   
   Bouncer(int x){
-    height = 300;
-    width = 150;
-    xPos = x - width;
+    charHeight = 300;
+    charWidth = 150;
+    xPos = x - charWidth;
+    println("x= "+ x + " charWidth = " + charWidth + " xPos = " + xPos);
     yPos = 250;
   }
   
