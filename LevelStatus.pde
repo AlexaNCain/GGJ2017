@@ -1,5 +1,5 @@
-enum LevelStatus{
-  WIN,
-  LOSE,
-  IN_PROGRESS
+enum LevelStatus {
+  WIN, 
+    LOSE, 
+    IN_PROGRESS
 };

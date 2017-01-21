@@ -1,4 +1,4 @@
-class AgentNeptune extends Character{
+class AgentNeptune extends Character {
 
   private int step;
   private boolean isUp = true;
@@ -11,36 +11,36 @@ class AgentNeptune extends Character{
     xPos = 0;
     yPos = 150;
   }
-  
-  void act(boolean keyPress){
+
+  void act(boolean keyPress) {
     setPaused(keyPress);
   }
-  
-  private void setPaused(boolean paused){
+
+  private void setPaused(boolean paused) {
     isPaused = paused;
   }
 
-  void move(int boundsCheck){
-    
-    if(isPaused == false){
-    
-    if(isUp){
-      moveUp();
-    } else {
-      moveDown();
-    }
-    
-    resolveDirection(boundsCheck);
+  void move(int boundsCheck) {
+
+    if (isPaused == false) {
+
+      if (isUp) {
+        moveUp();
+      } else {
+        moveDown();
+      }
+
+      resolveDirection(boundsCheck);
     }
   }
-  
-  void drawMe(){
-     rect(this.getXPos(), this.getYPos(), this.getWidth(), this.getHeight());
+
+  void drawMe() {
+    rect(this.getXPos(), this.getYPos(), this.getWidth(), this.getHeight());
   }
-  
-  private void resolveDirection(int boundsCheck){
-    if((isUp == true && yPos < 0) || (isUp == false && yPos > (boundsCheck - charHeight))){
-        isUp = !isUp;
+
+  private void resolveDirection(int boundsCheck) {
+    if ((isUp == true && yPos < 0) || (isUp == false && yPos > (boundsCheck - charHeight))) {
+      isUp = !isUp;
     }
   }
 
@@ -51,6 +51,4 @@ class AgentNeptune extends Character{
   private void moveDown() {
     yPos = yPos + step;
   }
-  
-
 }

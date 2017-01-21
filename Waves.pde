@@ -1,45 +1,42 @@
 GameLevel currentLevel;
 GameLevel levelOne;
 AgentNeptune agentNeptune;
-//Bouncer bouncer;
+int currentFrame = 0;
 
-void setup(){
+//static PImage bg1;
+//static PImage bg2;
+//static PImage bg3;
+int frames = 40;
+
+void setup() {
   size(1280, 800);
   background(175);
   levelOne = new GameLevel(height, width);
   currentLevel = levelOne;
   agentNeptune = currentLevel.getAgent();
-  //bouncer = new Bouncer(width);
-  frameRate(40);
+  frameRate(frames);
+  //bg1 = loadImage("background1.png");
+  //bg2 = loadImage("background2.png");
+  //bg3 = loadImage("background3.png");
 }
 
-void draw(){
- // agentNeptune.move(height);
+void draw() {
   background(175);
-  handleCharacters(currentLevel.getCharacters());
-  
+  currentLevel.drawLevelFrame(currentFrame);
+  currentFrame = (currentFrame + 1) % frames;
 }
 
-
-void handleCharacters(ArrayList<Character> characters){
-  
-  for(Character character : characters){
-    character.move(height);
-    character.drawMe();
-  }
-}
-
-void keyPressed(){
-  if(key != ESC){
+void keyPressed() {
+  if (key != ESC) {
     agentNeptune.act(true);
   }
 }
 
-void keyReleased(){
-   if(key != ESC){
+void keyReleased() {
+  if (key != ESC) {
     agentNeptune.act(false);
   }
 }
 /*void drawAgent(){
-   rect(agentNeptune.getXPos(), agentNeptune.getYPos(), agentNeptune.getWidth(), agentNeptune.getHeight());
-  }*/
+ rect(agentNeptune.getXPos(), agentNeptune.getYPos(), agentNeptune.getWidth(), agentNeptune.getHeight());
+ }*/

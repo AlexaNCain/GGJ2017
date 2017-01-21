@@ -1,5 +1,5 @@
-abstract class Character{
-  
+abstract class Character {
+
   protected int charHeight;
   protected int charWidth;
   protected int step;
@@ -24,5 +24,4 @@ abstract class Character{
   int getWidth() {
     return charWidth;
   }
-  
 }
