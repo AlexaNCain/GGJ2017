@@ -9,4 +9,9 @@ class Bouncer extends Character{
   
   void move(int boundsCheck){
   }
+  
+  void drawMe(){
+        rect(this.getXPos(), this.getYPos(), this.getWidth(), this.getHeight());
+  }
+  
 }

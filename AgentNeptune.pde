@@ -34,6 +34,10 @@ class AgentNeptune extends Character{
     }
   }
   
+  void drawMe(){
+     rect(this.getXPos(), this.getYPos(), this.getWidth(), this.getHeight());
+  }
+  
   private void resolveDirection(int boundsCheck){
     if((isUp == true && yPos < 0) || (isUp == false && yPos > (boundsCheck - height))){
         isUp = !isUp;

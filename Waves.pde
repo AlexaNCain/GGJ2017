@@ -24,7 +24,7 @@ void handleCharacters(ArrayList<Character> characters){
   
   for(Character character : characters){
     character.move(height);
-    rect(character.getXPos(), character.getYPos(), character.getWidth(), character.getHeight());
+    character.drawMe();
   }
 }
 

@@ -15,7 +15,7 @@ abstract class Character{
   }
 
   abstract void move(int boundsCheck);
-  //abstract void drawMe();
+  abstract void drawMe();
 
   int getHeight() {
     return height;
