@@ -14,21 +14,17 @@ void setup(){
 }
 
 void draw(){
-  //println("before " + agentNeptune.getYPos());
   agentNeptune.move(height);
-   // println("after " + agentNeptune.getYPos());
   background(175);
-  drawCharacters(currentLevel.getCharacters());
- 
-//println(agentNeptune.getYPos());
-  //drawAgent();
-  //rect(bouncer.getXPos(), bouncer.getYPos(), bouncer.getWidth(), bouncer.getHeight());
+  handleCharacters(currentLevel.getCharacters());
   
 }
 
-void drawCharacters(ArrayList<Character> characters){
+
+void handleCharacters(ArrayList<Character> characters){
   
   for(Character character : characters){
+    character.move(height);
     rect(character.getXPos(), character.getYPos(), character.getWidth(), character.getHeight());
   }
 }
