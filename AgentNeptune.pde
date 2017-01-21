@@ -2,8 +2,9 @@ class AgentNeptune extends Character {
 
   private int step;
   private boolean isUp = true;
+  private boolean isRight = true;
   private boolean isPaused = false;
-
+private boolean beforeAction = true;
   AgentNeptune() {
     charHeight = 100;
     charWidth = 50;
@@ -13,7 +14,11 @@ class AgentNeptune extends Character {
   }
 
   void act(boolean keyPress) {
+    //Waves.acting = true;
     setPaused(keyPress);
+    beforeAction = false;
+  //  keyAction(1280);
+    //Waves.acting = false;
   }
 
   private void setPaused(boolean paused) {
@@ -22,21 +27,27 @@ class AgentNeptune extends Character {
 
   void move(int boundsCheck) {
 
-    if (isPaused == false) {
+    if (beforeAction) {
+      if (isPaused == false) {
 
-      if (isUp) {
-        moveUp();
-      } else {
-        moveDown();
+        if (isUp) {
+          moveUp();
+        } else {
+          moveDown();
+        }
+
+        resolveDirection(boundsCheck);
       }
-
-      resolveDirection(boundsCheck);
+    } else {
+      
+      keyAction(1280);
+      
     }
   }
 
   void drawMe() {
     rect(xPos, yPos, charWidth, charHeight);
-   // println("y = " + yPos + " middle =" + getYCenter());
+    // println("y = " + yPos + " middle =" + getYCenter());
   }
 
   private void resolveDirection(int boundsCheck) {
@@ -45,11 +56,36 @@ class AgentNeptune extends Character {
     }
   }
 
+  private void resolveLeftRightDirection(int boundsCheck) {
+    if ((isRight == false && xPos < 0) || (isRight == true && xPos > (boundsCheck - charWidth))) {
+      isRight = !isRight;
+    }
+  }
+
+  private void keyAction(int boundsCheck) {
+
+    if (isRight) {
+      moveRight();
+    } else {
+      moveLeft();
+    }
+
+    resolveLeftRightDirection(boundsCheck);
+  }
+
   private void moveUp() {
     yPos = yPos - step;
   }
 
   private void moveDown() {
     yPos = yPos + step;
+  }
+
+  private void moveLeft() {
+    xPos = xPos - step;
+  }
+
+  private void moveRight() {
+    xPos = xPos + step;
   }
 }

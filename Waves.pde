@@ -2,6 +2,7 @@ GameLevel currentLevel;
 GameLevel levelOne;
 AgentNeptune agentNeptune;
 int currentFrame = 0;
+static boolean acting = false;
 
 //static PImage bg1;
 //static PImage bg2;
@@ -29,13 +30,13 @@ void draw() {
 }
 
 void keyPressed() {
-  if (key != ESC) {
+  if (key != ESC && acting == false) {
     currentLevel.act(true);
   }
 }
 
 void keyReleased() {
-  if (key != ESC) {
+  if (key != ESC && acting == false) {
     currentLevel.act(false);
   }
 }

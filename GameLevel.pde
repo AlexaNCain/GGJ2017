@@ -57,8 +57,10 @@ class GameLevel extends Level {
 
     if (agentNeptune.getYCenter() > bouncer.getYPos() && agentNeptune.getYCenter() < bouncer.getYPos() + bouncer.getHeight()) {
       println("WINNER WINNER WOW !!!!!!!! WINNER !!!!!!!! WOW.");
+     // status = LevelStatus.WIN;
     } else {
       println("LOSER LOSER WOE !!!!!!!!! LOSER !!!!!!! WOE.");
+     // status = LevelStatus.LOSE;
     }
   }
 }
