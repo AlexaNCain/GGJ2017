@@ -45,7 +45,7 @@ class GameLevel extends Level {
   private void handleCharacters() {
 
     for (Character character : characters) {
-      character.move(levelHeight);
+      character.move(levelHeight, levelWidth);
       character.drawMe();
     }
   }
@@ -54,14 +54,12 @@ class GameLevel extends Level {
     for (Character character : characters) {
       character.act(keyPress);
     }
-
   }
 
   void checkWin() {
 
-    if (agentNeptune.isHasActed()) {
-      if ((agentNeptune.getYCenter() > bouncer.getYPos()) && (agentNeptune.getYCenter() < bouncer.getYPos() + bouncer.getHeight())
-        && (agentNeptune.getXPos() + agentNeptune.getWidth()) >= bouncer.getXPos()) {
+    if (agentNeptune.isHasActed() && (agentNeptune.getXPos() + agentNeptune.getWidth()) >= bouncer.getXPos()) {
+      if ((agentNeptune.getYCenter() > bouncer.getYPos()) && (agentNeptune.getYCenter() < bouncer.getYPos() + bouncer.getHeight())) {
         println("WINNER WINNER WOW !!!!!!!! WINNER !!!!!!!! WOW.");
         status = LevelStatus.WIN;
       } else {
