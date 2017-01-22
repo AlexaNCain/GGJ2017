@@ -9,14 +9,21 @@ class GameLevel extends Level {
     PImage bg1 = loadImage("background1.png");
     PImage bg2 = loadImage("background2.png");
     PImage bg3 = loadImage("background3.png");
-    agentNeptune = new AgentNeptune();
-    bouncer = new Bouncer(levelWidth);
-    characters.add(agentNeptune);
-    characters.add(bouncer);
+
     background.add(bg1);
     background.add(bg2);
     background.add(bg3);
+    restart();
+
+  }
+  
+  void restart(){
+     agentNeptune = new AgentNeptune();
+    bouncer = new Bouncer(levelWidth);
+    characters.add(agentNeptune);
+    characters.add(bouncer);
     canRun = false;
+    status = LevelStatus.IN_PROGRESS;
   }
 
   ArrayList<Character> getCharacters() {

@@ -10,15 +10,17 @@ class TitleLevel extends Level {
 
   void act(boolean keyPress) {
     status = LevelStatus.WIN;
-    println("title");
   }
 
   LevelStatus checkWin() {
-    println("title status" + status.toString());
     return status;
   }
 
   void drawLevelFrame(int currentFrame) {
     handleBackground(currentFrame);
+  }
+  
+  void restart(){
+    status = LevelStatus.IN_PROGRESS;
   }
 }

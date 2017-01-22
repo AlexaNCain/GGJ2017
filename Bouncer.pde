@@ -8,7 +8,8 @@ class Bouncer extends Character {
     charHeight = 300;
     charWidth = 400;
     initWidth = 300;
-    step = 25;
+    stepY = 0;
+    stepX = 20;
     xPos = x - initWidth;
     yPos = 250;
     isRight = false;

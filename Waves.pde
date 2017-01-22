@@ -1,9 +1,10 @@
-Level currentLevel;
+Level currentLevel; //<>//
 GameLevel levelOne;
 TitleLevel title;
 AgentNeptune agentNeptune;
 int currentFrame = 0;
 static boolean acting = false;
+private LevelStatus currentStatus;
 
 int frames = 40;
 
@@ -14,6 +15,7 @@ void setup() {
   levelOne = new GameLevel(height, width, null);
   title = new TitleLevel(height, width, levelOne);
   currentLevel = title;
+  currentStatus = title.getLevelStatus();
   frameRate(frames);
 }
 
@@ -25,20 +27,28 @@ void draw() {
       currentLevel.drawLevelFrame(currentFrame);
       currentFrame = (currentFrame + 1) % frames;
     }
-    
-    if (currentLevel.checkWin() == LevelStatus.WIN) {
-        currentLevel = currentLevel.getNextLevel();
-      } //<>//
+
+    currentStatus = currentLevel.checkWin();
+    println(currentStatus);
+
+
+    if (currentStatus == LevelStatus.WIN) {
+      currentLevel = currentLevel.getNextLevel();
+    } else if (currentStatus == LevelStatus.LOSE) {
+      delay(2000);
+      currentLevel.restart();
+    }
   }
 }
 
 void keyPressed() {
-  if(currentLevel.getLevelStatus() == LevelStatus.IN_PROGRESS && !currentLevel.isCanRun()){
-    currentLevel.startLevel();
-  }
-  
-  else if (key != ESC && acting == false && currentLevel != null) {
-    currentLevel.act(true);
+
+  if (currentLevel != null) {
+    if (currentLevel.getLevelStatus() == LevelStatus.IN_PROGRESS && !currentLevel.isCanRun()) {
+      currentLevel.startLevel();
+    } else if (key != ESC && acting == false) {
+      currentLevel.act(true);
+    }
   }
 }
 
