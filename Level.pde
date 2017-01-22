@@ -7,6 +7,7 @@ abstract class Level {
   protected ArrayList<PImage> background = new ArrayList<PImage>();
   protected int currentFrame = 0;
   protected boolean canRun;
+  protected int timerOffset;
 
 
   Level(int levelHeight, int levelWidth, Level nextLevel) {
@@ -43,5 +44,6 @@ abstract class Level {
 
   void startLevel() {
     canRun = true;
+    timerOffset = millis();
   }
 }
