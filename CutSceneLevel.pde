@@ -10,7 +10,7 @@ class CutSceneLevel extends Level {
   CutSceneLevel(int levelHeight, int levelWidth, Level nextLevel) {
     super(levelHeight, levelWidth, nextLevel);
     PImage bg = loadImage("bouncerBg1.png");
-    agentNeptune = loadImage("Agent.png");
+    agentNeptune = Waves.agentImg;
     background.add(bg);
     canRun = false;
     agentXPos = 0;
@@ -37,7 +37,7 @@ class CutSceneLevel extends Level {
   }
 
   private void speak(String text){
-      fill(230);
+      fill(250);
       textSize(32);
       text(text, (agentXPos + agentWidth + 25), (agentHeight - 85)); 
   }

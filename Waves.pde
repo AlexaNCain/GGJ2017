@@ -21,6 +21,7 @@ AudioPlayer musicBox;
 static PImage insideBg1;
 static PImage insideBg2;
 static PImage insideBg3;
+static PImage agentImg;
 
 int frames = 40;
 
@@ -31,11 +32,13 @@ void setup() {
   insideBg1 = loadImage("background1.png");
   insideBg2 = loadImage("background2.png");
   insideBg3 = loadImage("background3.png");
-  credits = new CreditsLevel(height,width,null);
+  agentImg = loadImage("Agent.png");
+  credits = new CreditsLevel(height, width, null);
   levelThree= new GameLevel3(height, width, credits);
   levelTwo = new GameLevel2(height, width, levelThree);
   levelOne = new GameLevel(height, width, levelTwo);
-  Level cutSceneOne = new CutSceneLevel(height, width, levelOne);
+  Level cutSceneTwo = new CutSceneLevel2(height, width, levelOne);
+  Level cutSceneOne = new CutSceneLevel(height, width, cutSceneTwo);
   title = new TitleLevel(height, width, cutSceneOne);
   currentLevel = title;
   currentStatus = title.getLevelStatus();

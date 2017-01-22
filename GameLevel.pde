@@ -84,14 +84,12 @@ class GameLevel extends Level {
 
     if (agentNeptune.isHasActed() && (agentNeptune.getXPos() + agentNeptune.getWidth()) >= bouncer.getXPos()) {
       if ((agentNeptune.getYCenter() > bouncer.getYPos()) && (agentNeptune.getYCenter() < bouncer.getYPos() + bouncer.getHeight())) {
-        println("WINNER WINNER WOW !!!!!!!! WINNER !!!!!!!! WOW.");
         bouncerText = "Hmm...";
         bouncerText2 = "Let's see if you can handle this.";
         canWin = true;
         //  status = LevelStatus.WIN;
         Waves.audioPlayer.play();
       } else {
-        println("LOSER LOSER WOE !!!!!!!!! LOSER !!!!!!! WOE.");
         status = LevelStatus.LOSE;
         loseCount += 1;
         bouncerText = "Let's pretend that didn't happen...";
