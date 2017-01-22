@@ -1,4 +1,4 @@
-  
+
 
 class GameLevel extends Level {
   ArrayList<Character> characters = new ArrayList<Character>();
@@ -17,10 +17,9 @@ class GameLevel extends Level {
     background.add(bg2);
     background.add(bg3);
     restart();
-
   }
-  
-  void restart(){
+
+  void restart() {
     characters = new ArrayList<Character>();
     agentNeptune = new AgentNeptune();
     bouncer = new Bouncer(levelWidth);
@@ -56,10 +55,10 @@ class GameLevel extends Level {
   }
 
   void act(boolean keyPress) {
-    if(canRun){
-    for (Character character : characters) {
-      character.act(keyPress);
-    }
+    if (canRun) {
+      for (Character character : characters) {
+        character.act(keyPress);
+      }
     }
   }
 
@@ -70,19 +69,18 @@ class GameLevel extends Level {
         println("WINNER WINNER WOW !!!!!!!! WINNER !!!!!!!! WOW.");
         status = LevelStatus.WIN;
         Waves.audioPlayer.play();
-  
       } else {
         println("LOSER LOSER WOE !!!!!!!!! LOSER !!!!!!! WOE.");
         status = LevelStatus.LOSE;
       }
     }
-    
-      return status;
+
+    return status;
   }
-  
-  void handleBackground(int frameNumber){
+
+  void handleBackground(int frameNumber) {
     super.handleBackground(frameNumber);
-     if (frameNumber % 10 == 0 ) {    
+    if (frameNumber % 10 == 0 ) {    
       currentFrame=(currentFrame + 1) % background.size();
     }
   }

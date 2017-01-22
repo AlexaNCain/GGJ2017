@@ -14,14 +14,13 @@ abstract class Level {
     this.levelWidth = levelWidth;
     status = LevelStatus.IN_PROGRESS;
     this.nextLevel = nextLevel;
-    
   }
 
   LevelStatus getLevelStatus() {
     return status;
   }
-  
-  boolean isCanRun(){
+
+  boolean isCanRun() {
     return canRun;
   }
 
@@ -29,21 +28,20 @@ abstract class Level {
   abstract void act(boolean keyPress);
   abstract void restart();
   abstract LevelStatus checkWin();
-  
+
   protected void handleBackground(int frameNumber) {
     background(background.get(currentFrame));
-
   }
 
   void setLevelStatus(LevelStatus status) {
     this.status = status;
   }
-  
-  Level getNextLevel(){
-      return nextLevel;
+
+  Level getNextLevel() {
+    return nextLevel;
   }
-  
-  void startLevel(){
-  canRun = true;
-}
+
+  void startLevel() {
+    canRun = true;
+  }
 }

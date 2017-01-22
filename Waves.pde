@@ -22,9 +22,10 @@ int frames = 40;
 void setup() {
   size(1280, 800);
   background(175);
-
+  
   levelOne = new GameLevel(height, width, null);
-  title = new TitleLevel(height, width, levelOne);
+  Level cutSceneOne = new CutSceneLevel(height,width,levelOne);
+  title = new TitleLevel(height, width, cutSceneOne);
   currentLevel = title;
   currentStatus = title.getLevelStatus();
   frameRate(frames);

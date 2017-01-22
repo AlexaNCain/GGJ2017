@@ -34,8 +34,8 @@ class Bouncer extends Character {
   void act(boolean keyPress) {
     canAct = true;
   }
-  
-    int getYPos() {
+
+  int getYPos() {
     return yPos + yOffset;
   }
 }

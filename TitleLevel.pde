@@ -6,23 +6,27 @@ class TitleLevel extends Level {
     super(levelHeight, levelWidth, nextLevel);
     PImage bg = loadImage("Title.png");
     PImage bg2 = loadImage("Title2.png");
+    PImage bg3 = loadImage("Title3.png");
     background.add(bg);
     background.add(bg2);
+    background.add(bg3);
     canRun = true;
     canWin = false;
   }
 
   void act(boolean keyPress) {
 
-    if (!canWin) {
+    if (keyPress) {
+      if (!canWin) {
 
-      currentFrame = currentFrame + 1;
-      if (currentFrame >= background.size()) {
-        currentFrame = currentFrame - 1;
-        canWin = true;
+        currentFrame = currentFrame + 1;
+        if (currentFrame >= background.size()) {
+          currentFrame = currentFrame - 1;
+          canWin = true;
+        }
+      } else {
+        status = LevelStatus.WIN;
       }
-    } else {
-      status = LevelStatus.WIN;
     }
   }
 
