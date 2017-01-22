@@ -76,4 +76,15 @@ abstract class Character {
 
     resolveLeftRightDirection(boundsCheckX);
   }
+
+  protected void moveUpDown(int boundsCheckY) {
+
+    if (isUp) {
+      moveUp();
+    } else {
+      moveDown();
+    }
+
+    resolveDirectionUpDown(boundsCheckY);
+  }
 }

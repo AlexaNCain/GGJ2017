@@ -5,13 +5,13 @@ class AgentNeptune extends Character {
   private int imgWidth;
   private int xOffset;
 
-  AgentNeptune() {
+  AgentNeptune(int stepY) {
     charHeight = 250;
-    charWidth = 185;
+    charWidth = 190;
     imgWidth = 950;
     xPos = 0;
     xOffset = imgWidth - charWidth;
-    stepY = 20;
+    this.stepY = stepY;
     stepX = 25;
     yPos = 150;
     isRight = true;
@@ -35,14 +35,7 @@ class AgentNeptune extends Character {
 
     if (!hasActed) {
       if (isPaused == false) {
-
-        if (isUp) {
-          moveUp();
-        } else {
-          moveDown();
-        }
-
-        resolveDirectionUpDown(boundsCheckY);
+        moveUpDown(boundsCheckY);
       }
     } else {
 
@@ -53,9 +46,9 @@ class AgentNeptune extends Character {
   void drawMe() {
     image(neptuneHimself, (xPos - xOffset), yPos, imgWidth, charHeight);
   }
-  
+
   private void keyAction(int boundsCheckX) {
-  
-      moveLeftRight(boundsCheckX);
-    }
+
+    moveLeftRight(boundsCheckX);
+  }
 }

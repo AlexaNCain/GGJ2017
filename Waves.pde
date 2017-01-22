@@ -6,6 +6,8 @@ import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
 
 Level currentLevel;
+GameLevel3 levelThree;
+GameLevel2 levelTwo;
 GameLevel levelOne;
 TitleLevel title;
 AgentNeptune agentNeptune;
@@ -15,7 +17,9 @@ private LevelStatus currentStatus;
 Minim minim;
 static AudioPlayer audioPlayer;
 AudioPlayer musicBox;
-
+static PImage insideBg1;
+static PImage insideBg2;
+static PImage insideBg3;
 
 int frames = 40;
 
@@ -23,7 +27,12 @@ void setup() {
   size(1280, 800);
   background(175);
 
-  levelOne = new GameLevel(height, width, null);
+  insideBg1 = loadImage("background1.png");
+  insideBg2 = loadImage("background2.png");
+  insideBg3 = loadImage("background3.png");
+  levelThree= new GameLevel3(height, width, null);
+  levelTwo = new GameLevel2(height, width, levelThree);
+  levelOne = new GameLevel(height, width, levelTwo);
   Level cutSceneOne = new CutSceneLevel(height, width, levelOne);
   title = new TitleLevel(height, width, cutSceneOne);
   currentLevel = title;

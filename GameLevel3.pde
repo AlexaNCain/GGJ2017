@@ -1,9 +1,7 @@
-
-
-class GameLevel extends Level {
+class GameLevel3 extends Level {
   ArrayList<Character> characters = new ArrayList<Character>();
   private AgentNeptune agentNeptune;
-  private Bouncer bouncer;
+  private AgentBouncer bouncer;
   private String bouncerText;
   private String bouncerText2;
   private int loseCount;
@@ -12,7 +10,7 @@ class GameLevel extends Level {
   private int bouncerTextY;
 
 
-  GameLevel(int screenHeight, int screenWidth, Level nextLevel) {
+  GameLevel3(int screenHeight, int screenWidth, Level nextLevel) {
     super(screenHeight, screenWidth, nextLevel);
     PImage bg1 = Waves.insideBg1;
     PImage bg2 = Waves.insideBg2;
@@ -29,7 +27,7 @@ class GameLevel extends Level {
   void restart() {
     characters = new ArrayList<Character>();
     agentNeptune = new AgentNeptune(15);
-    bouncer = new Bouncer(levelWidth, 0, false);
+    bouncer = new AgentBouncer(levelWidth, 35, true);
     characters.add(agentNeptune);
     characters.add(bouncer);
     bouncerTextX =bouncer.getXPos();
@@ -85,8 +83,8 @@ class GameLevel extends Level {
     if (agentNeptune.isHasActed() && (agentNeptune.getXPos() + agentNeptune.getWidth()) >= bouncer.getXPos()) {
       if ((agentNeptune.getYCenter() > bouncer.getYPos()) && (agentNeptune.getYCenter() < bouncer.getYPos() + bouncer.getHeight())) {
         println("WINNER WINNER WOW !!!!!!!! WINNER !!!!!!!! WOW.");
-        bouncerText = "Hmm...";
-        bouncerText2 = "Let's see if you can handle this.";
+        bouncerText = "Alright. You're in!";
+        bouncerText2 = "But can you face... yourself?";
         canWin = true;
         //  status = LevelStatus.WIN;
         Waves.audioPlayer.play();
@@ -94,9 +92,9 @@ class GameLevel extends Level {
         println("LOSER LOSER WOE !!!!!!!!! LOSER !!!!!!! WOE.");
         status = LevelStatus.LOSE;
         loseCount += 1;
-        bouncerText = "Let's pretend that didn't happen...";
+       // bouncerText = "Let's pretend that didn't happen...";
         if (loseCount > 1) {
-          bouncerText2 = "Again.";
+        //  bouncerText2 = "Again.";
         }
       }
     }

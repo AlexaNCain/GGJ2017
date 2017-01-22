@@ -1,4 +1,4 @@
-class Bouncer extends Character {
+class AgentBouncer extends Bouncer {
 
   protected boolean canActLeftRight = false;
   protected boolean canActUpDown;
@@ -7,14 +7,11 @@ class Bouncer extends Character {
   protected int yOffset;
   protected int imgHeight;
 
-@Deprecated
-Bouncer(){} //AgentBouncer testing
-
-  Bouncer(int x, int stepY, boolean canActUpDown) {
-    charHeight = 300;
-    charWidth = 1260;
+  AgentBouncer(int x, int stepY, boolean canActUpDown) {
+    charHeight = 250;
+    charWidth = 950;
     initWidth = 300;
-    imgHeight = 400;
+    imgHeight = 250;
     yOffset = 50;
     this.stepY = stepY;
     stepX = 20;
@@ -23,10 +20,14 @@ Bouncer(){} //AgentBouncer testing
     isRight = false;
     isUp = false;
     this.canActUpDown = canActUpDown;
-    theBouncer = loadImage("ArmB.png");
+    theBouncer = loadImage("ArmAB.png");
   }
 
-  void move(int boundsCheckY, int boundsCheckX) {
+  void drawMe() {
+    image(theBouncer, xPos, yPos, charWidth, imgHeight);
+  }
+  
+    void move(int boundsCheckY, int boundsCheckX) {
     if (canActLeftRight) {
       moveLeftRight(boundsCheckX);
     }
@@ -34,10 +35,6 @@ Bouncer(){} //AgentBouncer testing
       println("move");
       moveUpDown(boundsCheckY);
     }
-  }
-
-  void drawMe() {
-    image(theBouncer, xPos, yPos, charWidth, imgHeight);
   }
 
   void act(boolean keyPress) {
@@ -48,4 +45,5 @@ Bouncer(){} //AgentBouncer testing
   int getYPos() {
     return yPos + yOffset;
   }
+
 }
