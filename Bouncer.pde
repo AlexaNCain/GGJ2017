@@ -1,16 +1,19 @@
 class Bouncer extends Character {
 
   private boolean canAct = false;
+  private PImage theBouncer;
+  private int initWidth;
 
   Bouncer(int x) {
     charHeight = 300;
-    charWidth = 150;
+    charWidth = 400;
+    initWidth = 300;
     step = 25;
-    xPos = x - charWidth;
-    println("x= "+ x + " charWidth = " + charWidth + " xPos = " + xPos);
+    xPos = x - initWidth;
     yPos = 250;
     isRight = false;
     isUp = false;
+    theBouncer = loadImage("FistB.png");
   }
 
   void move(int boundsCheckY, int boundsCheckX) {
@@ -20,7 +23,7 @@ class Bouncer extends Character {
   }
 
   void drawMe() {
-    rect(xPos, yPos, charWidth, charHeight);
+    image(theBouncer, xPos, yPos, charWidth, charHeight);
   }
 
   void act(boolean keyPress) {
