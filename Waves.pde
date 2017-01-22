@@ -44,8 +44,6 @@ void draw() {
     }
 
     currentStatus = currentLevel.checkWin();
-    println(currentStatus);
-
 
     if (currentStatus == LevelStatus.WIN) {
       currentLevel = currentLevel.getNextLevel();
