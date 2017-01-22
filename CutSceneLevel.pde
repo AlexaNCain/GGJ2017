@@ -27,7 +27,13 @@ class CutSceneLevel extends Level {
      speak("Sounds like a whole lot of mumbo-jumbo…");
     } else if (keyPressCount == 2){
       speak("Well, here goes nothing.");
+    } else if (keyPressCount >= 3){
+      moveAgent();
     }
+  }
+  
+  private void moveAgent(){
+      agentXPos += 15;
   }
 
   private void speak(String text){
@@ -45,7 +51,7 @@ class CutSceneLevel extends Level {
     status=LevelStatus.IN_PROGRESS;
   }
   LevelStatus checkWin() {
-    if (keyPressCount > eventCount) {
+    if (agentXPos > levelWidth) {
       status = LevelStatus.WIN;
     }
     return status;

@@ -22,9 +22,9 @@ int frames = 40;
 void setup() {
   size(1280, 800);
   background(175);
-  
+
   levelOne = new GameLevel(height, width, null);
-  Level cutSceneOne = new CutSceneLevel(height,width,levelOne);
+  Level cutSceneOne = new CutSceneLevel(height, width, levelOne);
   title = new TitleLevel(height, width, cutSceneOne);
   currentLevel = title;
   currentStatus = title.getLevelStatus();
@@ -33,6 +33,8 @@ void setup() {
   audioPlayer = minim.loadFile("Collision.mp3");
   musicBox = minim.loadFile("CrestingWave.mp3");
   musicBox.loop();
+  fill(230);
+  textSize(32);
 }
 
 void draw() {
@@ -49,7 +51,7 @@ void draw() {
     if (currentStatus == LevelStatus.WIN) {
       currentLevel = currentLevel.getNextLevel();
     } else if (currentStatus == LevelStatus.LOSE) {
-      delay(2000);
+      delay(1000);
       currentLevel.restart();
     }
   }

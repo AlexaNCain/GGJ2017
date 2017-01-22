@@ -4,6 +4,9 @@ class GameLevel extends Level {
   ArrayList<Character> characters = new ArrayList<Character>();
   private AgentNeptune agentNeptune;
   private Bouncer bouncer;
+  String bouncerText;
+  String bouncerText2;
+  int loseCount;
 
 
   GameLevel(int screenHeight, int screenWidth, Level nextLevel) {
@@ -11,6 +14,9 @@ class GameLevel extends Level {
     PImage bg1 = loadImage("background1.png");
     PImage bg2 = loadImage("background2.png");
     PImage bg3 = loadImage("background3.png");
+    bouncerText = "";
+    bouncerText2 = "";
+    loseCount = 0;
 
 
     background.add(bg1);
@@ -41,10 +47,10 @@ class GameLevel extends Level {
 
     handleBackground(frameNumber);
     handleCharacters();
+
+    text(bouncerText, bouncer.getXPos() - 250, (bouncer.getYPos() - 65));
+    text(bouncerText2, bouncer.getXPos() + 125, (bouncer.getYPos() - 25));
   }
-
-
-
 
   private void handleCharacters() {
 
@@ -56,6 +62,8 @@ class GameLevel extends Level {
 
   void act(boolean keyPress) {
     if (canRun) {
+      bouncerText = "";
+      bouncerText2 = "";
       for (Character character : characters) {
         character.act(keyPress);
       }
@@ -72,6 +80,11 @@ class GameLevel extends Level {
       } else {
         println("LOSER LOSER WOE !!!!!!!!! LOSER !!!!!!! WOE.");
         status = LevelStatus.LOSE;
+        loseCount += 1;
+        bouncerText = "Let's pretend that didn't happen...";
+        if (loseCount > 1) {
+          bouncerText2 = "Again.";
+        }
       }
     }
 
