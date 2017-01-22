@@ -1,3 +1,5 @@
+  
+
 class GameLevel extends Level {
   ArrayList<Character> characters = new ArrayList<Character>();
   private AgentNeptune agentNeptune;
@@ -9,6 +11,7 @@ class GameLevel extends Level {
     PImage bg1 = loadImage("background1.png");
     PImage bg2 = loadImage("background2.png");
     PImage bg3 = loadImage("background3.png");
+
 
     background.add(bg1);
     background.add(bg2);
@@ -66,6 +69,8 @@ class GameLevel extends Level {
       if ((agentNeptune.getYCenter() > bouncer.getYPos()) && (agentNeptune.getYCenter() < bouncer.getYPos() + bouncer.getHeight())) {
         println("WINNER WINNER WOW !!!!!!!! WINNER !!!!!!!! WOW.");
         status = LevelStatus.WIN;
+        Waves.audioPlayer.play();
+  
       } else {
         println("LOSER LOSER WOE !!!!!!!!! LOSER !!!!!!! WOE.");
         status = LevelStatus.LOSE;

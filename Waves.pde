@@ -1,10 +1,20 @@
-Level currentLevel; //<>//
+import ddf.minim.*; //<>//
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
+import ddf.minim.signals.*;
+import ddf.minim.spi.*;
+import ddf.minim.ugens.*;
+
+Level currentLevel;
 GameLevel levelOne;
 TitleLevel title;
 AgentNeptune agentNeptune;
 int currentFrame = 0;
 static boolean acting = false;
 private LevelStatus currentStatus;
+Minim minim;
+static AudioPlayer audioPlayer;
+
 
 int frames = 40;
 
@@ -17,13 +27,15 @@ void setup() {
   currentLevel = title;
   currentStatus = title.getLevelStatus();
   frameRate(frames);
+  minim = new Minim(this);
+  audioPlayer = minim.loadFile("Collision.mp3");
 }
 
 void draw() {
 
+
   if (currentLevel != null) {
     if (currentLevel.getLevelStatus() == LevelStatus.IN_PROGRESS) {
-      background(175);
       currentLevel.drawLevelFrame(currentFrame);
       currentFrame = (currentFrame + 1) % frames;
     }
@@ -42,6 +54,7 @@ void draw() {
 }
 
 void keyPressed() {
+
 
   if (currentLevel != null) {
     if (currentLevel.getLevelStatus() == LevelStatus.IN_PROGRESS && !currentLevel.isCanRun()) {

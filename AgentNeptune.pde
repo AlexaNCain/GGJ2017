@@ -2,17 +2,21 @@ class AgentNeptune extends Character {
 
   private boolean isPaused = false;
   private PImage neptuneHimself;
+  private int imgWidth;
+  private int xOffset;
 
   AgentNeptune() {
-    charHeight = 150;
-    charWidth = 200;
-    xPos = -50;
+    charHeight = 250;
+    charWidth = 185;
+    imgWidth = 950;
+    xPos = 0;
+    xOffset = imgWidth - charWidth;
     stepY = 20;
     stepX = 25;
     yPos = 150;
     isRight = true;
     isUp = true;
-    neptuneHimself = loadImage("Fist1.png");
+    neptuneHimself = loadImage("Arm.png");
   }
 
   boolean isHasActed() {
@@ -47,7 +51,7 @@ class AgentNeptune extends Character {
   }
 
   void drawMe() {
-    image(neptuneHimself, xPos, yPos, charWidth, charHeight);
+    image(neptuneHimself, (xPos - xOffset), yPos, imgWidth, charHeight);
   }
   
   private void keyAction(int boundsCheckX) {
