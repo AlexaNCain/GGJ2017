@@ -14,6 +14,7 @@ static boolean acting = false;
 private LevelStatus currentStatus;
 Minim minim;
 static AudioPlayer audioPlayer;
+AudioPlayer musicBox;
 
 
 int frames = 40;
@@ -29,6 +30,8 @@ void setup() {
   frameRate(frames);
   minim = new Minim(this);
   audioPlayer = minim.loadFile("Collision.mp3");
+  musicBox = minim.loadFile("CrestingWave.mp3");
+  musicBox.loop();
 }
 
 void draw() {
