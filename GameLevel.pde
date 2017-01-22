@@ -79,4 +79,11 @@ class GameLevel extends Level {
     
       return status;
   }
+  
+  void handleBackground(int frameNumber){
+    super.handleBackground(frameNumber);
+     if (frameNumber % 10 == 0 ) {    
+      currentFrame=(currentFrame + 1) % background.size();
+    }
+  }
 }

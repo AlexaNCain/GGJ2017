@@ -32,9 +32,7 @@ abstract class Level {
   
   protected void handleBackground(int frameNumber) {
     background(background.get(currentFrame));
-    if (frameNumber % 10 == 0 ) {    
-      currentFrame=(currentFrame + 1) % background.size();
-    }
+
   }
 
   void setLevelStatus(LevelStatus status) {
