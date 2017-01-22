@@ -6,6 +6,7 @@ import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
 
 Level currentLevel;
+CreditsLevel credits;
 GameLevel3 levelThree;
 GameLevel2 levelTwo;
 GameLevel levelOne;
@@ -30,7 +31,8 @@ void setup() {
   insideBg1 = loadImage("background1.png");
   insideBg2 = loadImage("background2.png");
   insideBg3 = loadImage("background3.png");
-  levelThree= new GameLevel3(height, width, null);
+  credits = new CreditsLevel(height,width,null);
+  levelThree= new GameLevel3(height, width, credits);
   levelTwo = new GameLevel2(height, width, levelThree);
   levelOne = new GameLevel(height, width, levelTwo);
   Level cutSceneOne = new CutSceneLevel(height, width, levelOne);

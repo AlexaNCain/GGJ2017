@@ -49,8 +49,8 @@ class GameLevel3 extends Level {
     handleBackground(frameNumber);
     handleCharacters();
 
-    text(bouncerText, bouncerTextX - 250, (bouncerTextY - 65));
-    text(bouncerText2, bouncerTextX - 250, (bouncerTextY - 25));
+    text(bouncerText, bouncerTextX - 350, (bouncerTextY - 65));
+    text(bouncerText2, bouncerTextX - 350, (bouncerTextY - 25));
   }
 
   private void handleCharacters() {
@@ -83,8 +83,8 @@ class GameLevel3 extends Level {
     if (agentNeptune.isHasActed() && (agentNeptune.getXPos() + agentNeptune.getWidth()) >= bouncer.getXPos()) {
       if ((agentNeptune.getYCenter() > bouncer.getYPos()) && (agentNeptune.getYCenter() < bouncer.getYPos() + bouncer.getHeight())) {
         println("WINNER WINNER WOW !!!!!!!! WINNER !!!!!!!! WOW.");
-        bouncerText = "Alright. You're in!";
-        bouncerText2 = "But can you face... yourself?";
+        bouncerText = "You may learn our secrets,";
+        bouncerText2 = "Fellow Order Member";
         canWin = true;
         //  status = LevelStatus.WIN;
         Waves.audioPlayer.play();
