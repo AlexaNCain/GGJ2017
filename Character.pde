@@ -2,7 +2,8 @@ abstract class Character {
 
   protected int charHeight;
   protected int charWidth;
-  protected int step;
+  protected int stepY;
+  protected int stepX;
   protected int xPos;
   protected int yPos;
   protected boolean hasActed = false;
@@ -37,20 +38,19 @@ abstract class Character {
   }
 
   protected void moveUp() {
-    yPos = yPos - step;
-    println("here " + yPos + " " + step);
+    yPos = yPos - stepY;
   }
 
   protected void moveDown() {
-    yPos = yPos + step;
+    yPos = yPos + stepY;
   }
 
   protected void moveLeft() {
-    xPos = xPos - step;
+    xPos = xPos - stepX;
   }
 
   protected void moveRight() {
-    xPos = xPos + step;
+    xPos = xPos + stepX;
   }
   abstract void act(boolean keyPress);
 

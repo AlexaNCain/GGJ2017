@@ -27,6 +27,7 @@ abstract class Level {
 
   abstract void drawLevelFrame(int frameNumber);
   abstract void act(boolean keyPress);
+  abstract void restart();
   abstract LevelStatus checkWin();
   
   protected void handleBackground(int frameNumber) {

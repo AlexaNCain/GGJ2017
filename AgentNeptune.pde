@@ -2,13 +2,13 @@ class AgentNeptune extends Character {
 
   private boolean isPaused = false;
   private PImage neptuneHimself;
-  private int initWidth;
 
   AgentNeptune() {
     charHeight = 150;
     charWidth = 200;
     xPos = -50;
-    step = 15;
+    stepY = 20;
+    stepX = 25;
     yPos = 150;
     isRight = true;
     isUp = true;
@@ -47,7 +47,6 @@ class AgentNeptune extends Character {
   }
 
   void drawMe() {
-    //rect(xPos, yPos, charWidth, charHeight);
     image(neptuneHimself, xPos, yPos, charWidth, charHeight);
   }
   
